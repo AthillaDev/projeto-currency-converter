@@ -1,0 +1,262 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+    outline: none;
+}
+
+.logo-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.logo-topo{
+    padding: 5px 0px;
+}
+   
+
+.logo-gif{
+    width: 500px;
+    display: block;
+    margin: -20px auto;
+}
+
+main{
+    width: 375px;
+    background: #BBFBFF;
+    border-radius: 20px;
+    margin: 0px auto 40px;
+    padding: 44px 24px 23px;
+}
+
+label{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #777777;
+    margin-bottom: 6px;
+    display: block;
+}
+
+select{
+    background:#ffffff;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 24px;
+    appearance: none;
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #555555;
+}
+
+input{
+    background:#ffffff;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 24px;
+    appearance: none;
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #555555;
+}
+
+button{
+    background: #1B83E2;
+    border-radius: 25px;
+    height: 48px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+    color: #fff;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+button:active{
+    opacity: 0.6;
+}
+
+section{
+    border: 1px solid #BBBBBB;
+    border-radius: 20px;
+    margin-top: 40px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow-img{
+    margin: 20px 0px;
+}
+
+.currency-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.currency{
+    font-weight: 400;
+    font-size: 14px; 
+    color: #777777;
+}
+
+
+.currency-value, .currency-value-to-convert{
+    font-weight: 700;
+    font-size: 20px;
+    color: #1B83E2;
+}
+
+/* ========================================
+   RESPONSIVIDADE PARA TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .logo-gif {
+        width: 100%;
+        max-width: 700px;
+        margin: 20px auto;
+    }
+
+    main {
+        width: 90%;
+        max-width: 500px;
+        padding: 50px 40px 30px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    select, input {
+        height: 52px;
+        font-size: 18px;
+        padding-left: 25px;
+    }
+
+    button {
+        height: 52px;
+        font-size: 22px;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE PARA DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .logo-gif {
+        width: 100%;
+        max-width: 800px;
+    }
+
+    main {
+        width: 90%;
+        max-width: 600px;
+        padding: 60px 50px 40px;
+    }
+
+    label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    select, input {
+        height: 56px;
+        font-size: 20px;
+        padding-left: 30px;
+    }
+
+    button {
+        height: 56px;
+        font-size: 24px;
+    }
+
+    section {
+        padding: 25px;
+    }
+
+    .currency-value, .currency-value-to-convert {
+        font-size: 24px;
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE PARA CELULAR PEQUENO (máx 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    .logo-gif {
+        width: 100%;
+        max-width: 300px;
+        margin: -10px auto 10px;
+    }
+
+    main {
+        width: 95%;
+        margin: 15px auto 30px;
+        padding: 30px 16px 20px;
+    }
+
+    label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    select, input {
+        height: 44px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        padding-left: 15px;
+    }
+
+    button {
+        height: 44px;
+        font-size: 16px;
+    }
+
+    section {
+        margin-top: 25px;
+        padding: 8px;
+    }
+
+    .arrow-img {
+        margin: 15px 0px;
+    }
+
+    .currency {
+        font-size: 12px;
+    }
+
+    .currency-value, .currency-value-to-convert {
+        font-size: 18px;
+    }
+}
+
