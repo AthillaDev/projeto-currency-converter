@@ -57,16 +57,16 @@ O projeto conta com:
 ```
 <h2>💻 Como executar o projeto</h2>
 
-Clone o repositório:
-git clone https://github.com/seu-usuario/convert-money.git
+1.Clone o repositório:
+git clone https://github.com/AthillaDev/projeto-currency-converter
 
-Acesse a pasta do projeto
+2.Acesse a pasta do projeto
 
-Abra o arquivo **index.html** no navegador
+3.Abra o arquivo **index.html** no navegador
 
 <h2>🌐 Deploy</h2>
 
-(Adicione aqui o link do seu site hospedado no GitHub Pages)
+https://athilladev.github.io/projeto-currency-converter/
 
 <h2>💡 Melhorias futuras</h2>
 
