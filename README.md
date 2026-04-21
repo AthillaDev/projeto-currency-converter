@@ -77,7 +77,7 @@ https://athilladev.github.io/projeto-currency-converter/
 
 <h2>📸 Preview</h2>
 
-(Adicione um print do seu projeto aqui)
+<img src="https://raw.githubusercontent.com/AthillaDev/projeto-currency-converter/f4362328405ae327091d1da71837c631886e4891/assets/Preview%20logo%20conversor.png.png" />
 
 <h2>👨‍💻 Autor</h2>
 
