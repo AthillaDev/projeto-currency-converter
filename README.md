@@ -66,7 +66,7 @@ git clone https://github.com/AthillaDev/projeto-currency-converter
 
 <h2>🌐 Deploy</h2>
 
-https://athilladev.github.io/projeto-currency-converter/
+[projeto-conversor-de-moedas.vercel.app](https://projeto-currency-converter.vercel.app/)
 
 <h2>💡 Melhorias futuras</h2>
 
