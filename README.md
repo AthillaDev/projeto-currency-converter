@@ -1,86 +1,118 @@
-<h1>💱 Convert Money</h1>
+# 💱 Convert Money
 
-Um conversor de moedas moderno e interativo desenvolvido com HTML, CSS e JavaScript.
+Um conversor de moedas moderno e interativo, desenvolvido em JavaScript puro (ES Modules), consumindo cotações em tempo real da [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
 
-<h2>📌 Sobre o projeto</h2>
+## 📌 Sobre o projeto
 
-O <b>Convert Money</b> é uma aplicação web que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
+O **Convert Money** é uma aplicação web que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
 
-O projeto foi criado com foco em prática de desenvolvimento front-end e simulação de uma aplicação real para portfólio.
+O projeto nasceu como prática de front-end e foi evoluído com foco em boas práticas de engenharia de software: arquitetura modular, separação de responsabilidades e testes automatizados — pensado para servir como peça de portfólio.
 
-<h2>🚀 Funcionalidades</h2>
-<ul>
-  
-**<li>💱 Conversão entre múltiplas moedas:</li>**
-    <li>Real (BRL)</li>
-    <li>Dólar (USD)</li>
-    <li>Euro (EUR)</li>
-    <li>Libra (GBP)</li>
-    <li>Bitcoin (BTC)</li>
-    <li>Renminbi (CNY)</li>
-    <li>Iene (JPY)</li>
-**<li>🔄 Conversão dinâmica entre moedas</li>**
-**<li>🎯 Atualização automática ao trocar moeda</li>**
-**<li>💡 Interface simples e intuitiva</li>**
-**<li>📱 Layout responsivo</li>**
-  </ul>
-  
-<h2>🛠️ Tecnologias utilizadas</h2>
-<ul>
-<li>HTML5</li>
-<li>CSS3</li>
-<li>JavaScript</li>
-</ul>
+## 🚀 Funcionalidades
 
-<h2>🎨 Layout</h2>
+- 💱 Conversão entre múltiplas moedas:
+  - Real (BRL)
+  - Dólar Americano (USD)
+  - Euro (EUR)
+  - Libra Esterlina (GBP)
+  - Bitcoin (BTC)
+  - Renminbi Chinês (CNY)
+  - Iene Japonês (JPY)
+- 🔄 Conversão dinâmica, com cotações reais buscadas em tempo real
+- 🎯 Atualização automática da interface ao trocar a moeda selecionada
+- ⚡ Cache de cotações (5 min) para evitar requisições desnecessárias à API
+- ♿ Acessibilidade: labels associados aos campos, `aria-live` na região de resultado, teclado numérico no mobile
+- 📱 Layout responsivo (mobile, tablet e desktop)
 
-O projeto conta com:
-<ul>
-<li>Design moderno</li>
-<li>Background estilizado</li>
-<li>Logo personalizada</li>
-<li>Interface centralizada e clean</li>
-</ul>
+## 🛠️ Tecnologias utilizadas
 
-<h2>📁 Estrutura do projeto</h2>
+- HTML5
+- CSS3
+- JavaScript (ES Modules)
+- [Vitest](https://vitest.dev/) — testes unitários
+- [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) — cotações de câmbio em tempo real
+
+## 📁 Estrutura do projeto
 
 ```bash
-📂 convert-money
- ┣ 📂 assets
- ┃ ┣ 📄 logo-gif.gif
- ┃ ┣ 📄 background_currency_converter.png
- ┃ ┣ 📂 moedas
- ┣ 📄 index.html
- ┣ 📄 style.css
- ┣ 📄 scripts.js
- ┗ 📄 README.md
+Projeto/
+├── index.html
+├── style.css
+├── package.json
+├── vitest.config.js
+├── README.md
+├── assets/
+│   ├── REAL.png
+│   ├── DOLAR.png
+│   ├── EURO.png
+│   ├── LIBRA.png
+│   ├── BITCOIN.png
+│   ├── CHINA.png
+│   ├── JAPAO.png
+│   ├── Seta.png
+│   ├── logo 10.png
+│   └── background_currency_converter.png
+└── src/
+    ├── main.js            # Orquestra a aplicação e liga os eventos
+    ├── api.js             # Comunicação com a AwesomeAPI + cache
+    ├── formatters.js       # Funções puras: parsing, formatação e conversão
+    ├── dom.js              # Única camada que manipula o DOM
+    ├── currencyConfig.js   # Configuração central de cada moeda
+    └── __tests__/
+        ├── formatters.test.js
+        └── api.test.js
 ```
-<h2>💻 Como executar o projeto</h2>
 
-1.Clone o repositório:
-git clone https://github.com/AthillaDev/projeto-currency-converter
+Cada módulo tem uma responsabilidade única — isso separa lógica de negócio (testável sem navegador) de manipulação de tela, e facilita manutenção e testes.
 
-2.Acesse a pasta do projeto
+## 💻 Como executar o projeto
 
-3.Abra o arquivo **index.html** no navegador
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/AthillaDev/projeto-currency-converter
+   ```
+2. Acesse a pasta do projeto:
+   ```bash
+   cd projeto-currency-converter
+   ```
+3. Como o projeto usa **ES Modules**, ele precisa ser servido por um servidor local (abrir o `index.html` direto via `file://` não funciona por restrição de CORS). Use uma das opções:
+   ```bash
+   npx serve .
+   ```
+   ou a extensão **Live Server** do VS Code.
 
-<h2>🌐 Deploy</h2>
+## 🧪 Rodando os testes
 
-[projeto-conversor-de-moedas.vercel.app](https://projeto-currency-converter.vercel.app/)
+```bash
+npm install
+npm test
+```
 
-<h2>💡 Melhorias futuras</h2>
+Os testes cobrem as funções de parsing/formatação/conversão (`formatters.js`) e a camada de comunicação com a API, incluindo cache e tratamento de erros (`api.js`), com o `fetch` mockado — sem depender de rede real.
 
-<li>🔌 Integração com API de câmbio em tempo real</li>
-<li>🌍 Mais moedas disponíveis</li>
-<li>📊 Histórico de conversões</li>
-<li>🎨 Animações mais avançadas</li>
+## 🌐 Deploy
 
-<h2>📸 Preview</h2>
+https://athilladev.github.io/projeto-currency-converter/
+
+## 💡 Melhorias futuras
+
+- 🔁 Botão de inverter moedas (from ↔ to)
+- 📊 Histórico de conversões (localStorage)
+- 📈 Gráfico de variação da cotação (dados históricos da AwesomeAPI)
+- 🌙 Dark mode
+- 🔒 Migração para TypeScript
+- 📦 PWA (instalável)
+
+## 📸 Preview
 
 <img src="https://raw.githubusercontent.com/AthillaDev/projeto-currency-converter/f4362328405ae327091d1da71837c631886e4891/assets/Preview%20logo%20conversor.png.png" />
 
-<h2>👨‍💻 Autor</h2>
+## 👨‍💻 Autor
 
-Desenvolvido por AthillaDev 🚀
+Desenvolvido por **AthillaDev** 🚀
+
+✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end e boas práticas de engenharia de software.
+
+
 
 **✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end.**
