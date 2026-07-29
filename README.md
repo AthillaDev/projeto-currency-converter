@@ -114,5 +114,3 @@ Desenvolvido por **AthillaDev** 🚀
 ✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end e boas práticas de engenharia de software.
 
 
-
-**✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end.**
