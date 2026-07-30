@@ -1,0 +1,16 @@
+{
+  "name": "conversor-de-moedas",
+  "version": "1.0.0",
+  "description": "Conversor de moedas em JavaScript puro, consumindo a AwesomeAPI de cotações.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.4",
+    "@vitest/coverage-v8": "^2.1.4",
+    "jsdom": "^25.0.1"
+  }
+}
