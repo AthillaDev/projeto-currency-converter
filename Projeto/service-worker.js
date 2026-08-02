@@ -1,4 +1,4 @@
-const CACHE_NAME = "trocca-cache-v1"
+const CACHE_NAME = "trocca-cache-v2"
 
 const ASSETS_TO_CACHE = [
     "./",
@@ -18,6 +18,7 @@ const ASSETS_TO_CACHE = [
     "./src/chart.js",
     "./assets/icon-192.png",
     "./assets/icon-512.png",
+    "./assets/background_currency_converter.webp",
 ]
 
 self.addEventListener("install", (event) => {

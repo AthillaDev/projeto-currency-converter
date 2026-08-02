@@ -111,6 +111,24 @@ npm test
 
 https://projeto-currency-converter.vercel.app/
 
+## 🚦 Lighthouse Audit
+
+Auditoria rodada em produção (Vercel) em 02/08/2026:
+
+| Categoria | Mobile | Desktop |
+|---|---|---|
+| Performance | 64 → *em otimização* | 83 |
+| Acessibilidade | 96 | 96 |
+| Práticas recomendadas | 92 | 96 |
+| SEO | 100 | 100 |
+
+**Correções já aplicadas a partir da auditoria:**
+- ✅ Contraste de texto ajustado pra atender WCAG AA (4.5:1) nos textos secundários
+- ✅ Atributos `width`/`height` adicionados nas imagens, reduzindo layout shift (CLS)
+
+**Melhoria pendente identificada:**
+- 🔧 Compressão das imagens estáticas (`background_currency_converter.png` e ícones de moeda) — a auditoria estimou ~2.6 MB de economia possível. É o maior gargalo de performance no mobile hoje, causado pelo peso das imagens originais em conexões mais lentas.
+
 ## 💡 Melhorias futuras
 
 - 🌍 Mais moedas disponíveis
