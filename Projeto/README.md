@@ -1,86 +1,132 @@
-<h1>💱 Convert Money</h1>
+# 💱 Trocca
 
-Um conversor de moedas moderno e interativo desenvolvido com HTML, CSS e JavaScript.
+**Câmbio simples. Na hora certa.**
 
-<h2>📌 Sobre o projeto</h2>
+Um conversor de moedas moderno, interativo e instalável (PWA), desenvolvido em JavaScript puro (ES Modules), consumindo cotações em tempo real da [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
 
-O <b>Convert Money</b> é uma aplicação web que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
+## 📌 Sobre o projeto
 
-O projeto foi criado com foco em prática de desenvolvimento front-end e simulação de uma aplicação real para portfólio.
+**Trocca** é uma aplicação web que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
 
-<h2>🚀 Funcionalidades</h2>
-<ul>
-  
-**<li>💱 Conversão entre múltiplas moedas:</li>**
-    <li>Real (BRL)</li>
-    <li>Dólar (USD)</li>
-    <li>Euro (EUR)</li>
-    <li>Libra (GBP)</li>
-    <li>Bitcoin (BTC)</li>
-    <li>Renminbi (CNY)</li>
-    <li>Iene (JPY)</li>
-**<li>🔄 Conversão dinâmica entre moedas</li>**
-**<li>🎯 Atualização automática ao trocar moeda</li>**
-**<li>💡 Interface simples e intuitiva</li>**
-**<li>📱 Layout responsivo</li>**
-  </ul>
-  
-<h2>🛠️ Tecnologias utilizadas</h2>
-<ul>
-<li>HTML5</li>
-<li>CSS3</li>
-<li>JavaScript</li>
-</ul>
+O projeto nasceu como prática de front-end e foi evoluído com foco em boas práticas de engenharia de software: arquitetura modular, separação de responsabilidades, testes automatizados e progressivamente enriquecido com histórico, visualização de dados e suporte offline — pensado para servir como peça de portfólio.
 
-<h2>🎨 Layout</h2>
+## 🚀 Funcionalidades
 
-O projeto conta com:
-<ul>
-<li>Design moderno</li>
-<li>Background estilizado</li>
-<li>Logo personalizada</li>
-<li>Interface centralizada e clean</li>
-</ul>
+- 💱 Conversão entre múltiplas moedas:
+  - Real (BRL)
+  - Dólar Americano (USD)
+  - Euro (EUR)
+  - Libra Esterlina (GBP)
+  - Bitcoin (BTC)
+  - Renminbi Chinês (CNY)
+  - Iene Japonês (JPY)
+- 🔄 Conversão dinâmica, com cotações reais buscadas em tempo real
+- 🔁 Botão de inverter moedas (origem ↔ destino), com atalho de swipe no mobile
+- ⌨️ Máscara de valor monetário em tempo real + atalho de teclado (Enter)
+- 🔢 Chips de valores rápidos (100 / 500 / 1.000 / 10.000)
+- 📋 Copiar valor convertido com um clique
+- 📈 Indicador de tendência (alta/baixa/estável) e horário da última cotação
+- 📊 Gráfico de variação da cotação (últimos 15 dias)
+- 🕘 Histórico das últimas conversões (persistido localmente)
+- 🌙 Dark mode, com persistência de preferência
+- 📲 PWA — instalável, com suporte offline via Service Worker
+- ⚡ Cache de cotações (5 min) para evitar requisições desnecessárias à API
+- ♿ Acessibilidade: labels associados aos campos, `aria-live` na região de resultado, `prefers-reduced-motion` respeitado
+- 📱 Layout responsivo (mobile, tablet e desktop)
 
-<h2>📁 Estrutura do projeto</h2>
+## 🛠️ Tecnologias utilizadas
+
+- HTML5
+- CSS3 (custom properties para theming)
+- JavaScript (ES Modules)
+- Canvas API (gráfico de variação, sem bibliotecas externas)
+- Service Worker + Web App Manifest (PWA)
+- [Vitest](https://vitest.dev/) — testes unitários
+- [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) — cotações de câmbio em tempo real e histórico
+
+## 📁 Estrutura do projeto
 
 ```bash
-📂 convert-money
- ┣ 📂 assets
- ┃ ┣ 📄 logo-gif.gif
- ┃ ┣ 📄 background_currency_converter.png
- ┃ ┣ 📂 moedas
- ┣ 📄 index.html
- ┣ 📄 style.css
- ┣ 📄 scripts.js
- ┗ 📄 README.md
+Projeto/
+├── index.html
+├── style.css
+├── package.json
+├── vitest.config.js
+├── manifest.json          # Configuração do PWA
+├── service-worker.js      # Cache offline (estratégia mista)
+├── README.md
+├── assets/
+│   ├── REAL.png
+│   ├── DOLAR.png
+│   ├── EURO.png
+│   ├── LIBRA.png
+│   ├── BITCOIN.png
+│   ├── CHINA.png
+│   ├── JAPAO.png
+│   ├── Seta.png
+│   ├── icon-192.png        # Ícone do PWA
+│   ├── icon-512.png        # Ícone do PWA
+│   └── background_currency_converter.png
+└── src/
+    ├── main.js            # Orquestra a aplicação e liga os eventos
+    ├── api.js             # Comunicação com a AwesomeAPI + cache + tendência + histórico
+    ├── formatters.js       # Funções puras: parsing, formatação e conversão
+    ├── dom.js              # Única camada que manipula o DOM
+    ├── theme.js            # Controle de dark/light mode
+    ├── inputMask.js        # Máscara de valor monetário em tempo real
+    ├── clipboard.js         # Copiar valor pra área de transferência
+    ├── swipeGesture.js      # Detecção de gesto de swipe (mobile)
+    ├── history.js           # Histórico de conversões (localStorage)
+    ├── chart.js             # Gráfico de variação (canvas puro)
+    ├── currencyConfig.js   # Configuração central de cada moeda
+    └── __tests__/
+        ├── formatters.test.js
+        └── api.test.js
 ```
-<h2>💻 Como executar o projeto</h2>
 
-1.Clone o repositório:
-git clone https://github.com/AthillaDev/projeto-currency-converter
+## 💻 Como executar o projeto
 
-2.Acesse a pasta do projeto
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/AthillaDev/projeto-currency-converter
+   ```
+2. Acesse a pasta do projeto:
+   ```bash
+   cd projeto-currency-converter
+   ```
+3. Como o projeto usa **ES Modules** e **Service Worker**, ele precisa ser servido por um servidor local (abrir o `index.html` direto via `file://` não funciona). Use uma das opções:
+   ```bash
+   npx serve .
+   ```
+   ou a extensão **Live Server** do VS Code.
 
-3.Abra o arquivo **index.html** no navegador
+## 🧪 Rodando os testes
 
-<h2>🌐 Deploy</h2>
+```bash
+npm install
+npm test
+```
 
-https://athilladev.github.io/projeto-currency-converter/
+## 🌐 Deploy
 
-<h2>💡 Melhorias futuras</h2>
+https://projeto-currency-converter.vercel.app/
 
-<li>🔌 Integração com API de câmbio em tempo real</li>
-<li>🌍 Mais moedas disponíveis</li>
-<li>📊 Histórico de conversões</li>
-<li>🎨 Animações mais avançadas</li>
+## 💡 Melhorias futuras
 
-<h2>📸 Preview</h2>
+- 🌍 Mais moedas disponíveis
+- 🎨 Skeleton loading mais elaborado
+- 🔔 Notificação de variação relevante (via Push API)
 
-(Adicione um print do seu projeto aqui)
+## 📸 Preview
 
-<h2>👨‍💻 Autor</h2>
+![Preview do Trocca](./assets/screen.png)
 
-Desenvolvido por AthillaDev 🚀
+## 👨‍💻 Autor
 
-**✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end.**
+Desenvolvido por **AthillaDev** 🚀
+
+- GitHub: [github.com/AthillaDev](https://github.com/AthillaDev)
+- LinkedIn: [linkedin.com/in/athillacruz](https://www.linkedin.com/in/athillacruz)
+- Portfólio: [meu-portfolio-athilla-dev.vercel.app](https://meu-portfolio-athilla-dev.vercel.app/)
+
+✨ Projeto criado para estudo e desenvolvimento de habilidades em front-end e boas práticas de engenharia de software.

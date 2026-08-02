@@ -1,7 +1,7 @@
 {
-  "name": "conversor-de-moedas",
+  "name": "trocca",
   "version": "1.0.0",
-  "description": "Conversor de moedas em JavaScript puro, consumindo a AwesomeAPI de cotações.",
+  "description": "Trocca — Câmbio simples. Na hora certa. Conversor de moedas com cotações em tempo real via AwesomeAPI.",
   "type": "module",
   "scripts": {
     "test": "vitest run",

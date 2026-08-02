@@ -55,3 +55,39 @@ export function convertCurrency(amount, fromCurrency, toCurrency, rates) {
     const rate = rates[toCurrency] || 0
     return rate ? valueInReal / rate : 0
 }
+
+/**
+ * Interpreta uma variação percentual do dia em direção de tendência.
+ * @param {number} pctChange
+ * @returns {{ arrow: string, direction: "up" | "down" | "neutral", label: string }}
+ */
+export function formatTrend(pctChange) {
+    if (pctChange > 0) {
+        return { arrow: "▲", direction: "up", label: `Em alta (${pctChange.toFixed(2)}% hoje)` }
+    }
+    if (pctChange < 0) {
+        return { arrow: "▼", direction: "down", label: `Em baixa (${pctChange.toFixed(2)}% hoje)` }
+    }
+    return { arrow: "•", direction: "neutral", label: "Estável hoje" }
+}
+
+/**
+ * Formata um timestamp em texto relativo curto, em português.
+ * @param {number | null} timestampMs
+ * @returns {string} ex: "há 2 minutos", ou "" se timestamp inválido
+ */
+export function formatRelativeTime(timestampMs) {
+    if (!timestampMs) return ""
+
+    const diffSeconds = Math.round((Date.now() - timestampMs) / 1000)
+
+    if (diffSeconds < 60) return "agora mesmo"
+
+    const diffMinutes = Math.round(diffSeconds / 60)
+    if (diffMinutes < 60) {
+        return diffMinutes === 1 ? "há 1 minuto" : `há ${diffMinutes} minutos`
+    }
+
+    const diffHours = Math.round(diffMinutes / 60)
+    return diffHours === 1 ? "há 1 hora" : `há ${diffHours} horas`
+}

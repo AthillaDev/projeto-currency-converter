@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest"
-import { parseInputValue, formatCurrencyValue, convertCurrency } from "../formatters.js"
+import {
+    parseInputValue,
+    formatCurrencyValue,
+    convertCurrency,
+    formatTrend,
+    formatRelativeTime,
+} from "../formatters.js"
 
 describe("parseInputValue", () => {
     it("converte um valor no formato pt-BR com separador de milhar", () => {
@@ -89,5 +95,53 @@ describe("convertCurrency", () => {
 
     it("trata moeda de origem desconhecida como taxa 0", () => {
         expect(convertCurrency(100, "moeda-invalida", "real", rates)).toBe(0)
+    })
+})
+
+describe("formatTrend", () => {
+    it("retorna direção 'up' para variação positiva", () => {
+        const result = formatTrend(1.25)
+        expect(result.direction).toBe("up")
+        expect(result.arrow).toBe("▲")
+    })
+
+    it("retorna direção 'down' para variação negativa", () => {
+        const result = formatTrend(-0.5)
+        expect(result.direction).toBe("down")
+        expect(result.arrow).toBe("▼")
+    })
+
+    it("retorna direção 'neutral' para variação zero", () => {
+        const result = formatTrend(0)
+        expect(result.direction).toBe("neutral")
+        expect(result.arrow).toBe("•")
+    })
+})
+
+describe("formatRelativeTime", () => {
+    it("retorna string vazia para timestamp inválido", () => {
+        expect(formatRelativeTime(null)).toBe("")
+        expect(formatRelativeTime(undefined)).toBe("")
+        expect(formatRelativeTime(0)).toBe("")
+    })
+
+    it("retorna 'agora mesmo' para menos de 60 segundos atrás", () => {
+        const thirtySecondsAgo = Date.now() - 30 * 1000
+        expect(formatRelativeTime(thirtySecondsAgo)).toBe("agora mesmo")
+    })
+
+    it("retorna minutos no singular corretamente", () => {
+        const oneMinuteAgo = Date.now() - 60 * 1000
+        expect(formatRelativeTime(oneMinuteAgo)).toBe("há 1 minuto")
+    })
+
+    it("retorna minutos no plural corretamente", () => {
+        const fiveMinutesAgo = Date.now() - 5 * 60 * 1000
+        expect(formatRelativeTime(fiveMinutesAgo)).toBe("há 5 minutos")
+    })
+
+    it("retorna horas quando passa de 60 minutos", () => {
+        const twoHoursAgo = Date.now() - 2 * 60 * 60 * 1000
+        expect(formatRelativeTime(twoHoursAgo)).toBe("há 2 horas")
     })
 })
