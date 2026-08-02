@@ -1,0 +1,17 @@
+# Dependências
+node_modules/
+
+# Logs
+npm-debug.log*
+*.log
+
+# Cobertura de testes
+coverage/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Variáveis de ambiente (caso venha a usar no futuro)
+.env
+.env.local

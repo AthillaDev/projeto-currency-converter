@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trocca — Câmbio simples. Na hora certa. Converta entre Real, Dólar, Euro, Libra, Bitcoin, Renminbi e Iene com cotações em tempo real.">
+    <meta name="theme-color" content="#1B83E2">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./assets/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="./assets/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Trocca — Câmbio simples. Na hora certa.</title>
+</head>
+
+<body>
+    <button class="theme-toggle" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <div class="logo-topo">
+        <svg class="logo-gif" viewBox="0 0 280 76" role="img" aria-label="Trocca — Câmbio simples. Na hora certa.">
+            <g transform="translate(4, 10)">
+                <circle cx="22" cy="22" r="20" fill="none" stroke="var(--color-accent)" stroke-width="3"/>
+                <circle cx="32" cy="32" r="20" fill="var(--color-bg-card)" stroke="var(--color-accent)" stroke-width="3"/>
+                <path d="M24 32 L32 24 M32 24 L32 30 M32 24 L26 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M40 32 L32 40 M32 40 L32 34 M32 40 L38 40" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="66" y="40" font-family="'Roboto Slab', serif" font-weight="700" font-size="32" fill="var(--color-text-value)">Trocca</text>
+            <text x="66" y="60" font-family="'Roboto Slab', serif" font-weight="400" font-size="13" fill="var(--color-text-label)" letter-spacing="0.3">Câmbio simples. Na hora certa.</text>
+        </svg>
+    </div>
+    <div>
+        <img class="logo-background" src="./assets/background_currency_converter.png" alt="Meu-background">
+        <div class="background-overlay"></div>
+    </div>
+
+    <main>
+        <div class="currency-selectors">
+            <label for="currency-select-from" class="selector-field">
+                Converter <b>de</b>
+                <select id="currency-select-from" class="currency-select-from">
+                    <option value="real">R$ Real Brasileiro</option>
+                    <option value="dolar">US$ Dólar Americano</option>
+                    <option value="euro">€ Euro</option>
+                    <option value="libra">£ Libra</option>
+                    <option value="bitcoin">₿ Bitcoin</option>
+                    <option value="renminbi">¥ Renminbi Chines</option>
+                    <option value="iene">¥ Iene Japones</option>
+                </select>
+            </label>
+
+            <button class="swap-button" type="button" aria-label="Inverter moedas de origem e destino">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="17 1 21 5 17 9"></polyline>
+                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                    <polyline points="7 23 3 19 7 15"></polyline>
+                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                </svg>
+            </button>
+
+            <label for="currency-select-to" class="selector-field">
+                Converter <b>para</b>
+                <select id="currency-select-to" class="currency-select">
+                    <option value="real">R$ Real Brasileiro</option>
+                    <option value="dolar">US$ Dólar Americano</option>
+                    <option value="euro">€ Euro</option>
+                    <option value="libra">£ Libra</option>
+                    <option value="bitcoin">₿ Bitcoin</option>
+                    <option value="renminbi">¥ Renminbi Chines</option>
+                    <option value="iene">¥ Iene Japones</option>
+                </select>
+            </label>
+        </div>
+
+        <label for="input-currency">
+            <b>Valor</b>
+            <input id="input-currency" class="input-currency" inputmode="decimal" placeholder="10.000,00">
+        </label>
+
+        <div class="quick-amounts">
+            <button class="quick-amount" type="button" data-amount="10000">100</button>
+            <button class="quick-amount" type="button" data-amount="50000">500</button>
+            <button class="quick-amount" type="button" data-amount="100000">1.000</button>
+            <button class="quick-amount" type="button" data-amount="1000000">10.000</button>
+        </div>
+
+        <button class="convert-button">Converter</button>
+
+        <section aria-live="polite" class="result-section">
+            <div class="currency-box currency-box--from">
+                <img class="currency-img-from" src="./assets/REAL.png" alt="logo-moeda-a-converter">
+                <p class="currency" id="currency-name-from">Real</p>
+                <p class="currency-value-to-convert">R$ 0,00</p>
+            </div>
+
+            <img class="arrow-img" src="./assets/Seta.png" alt="logo-Seta">
+
+            <div class="currency-box currency-box--to">
+                <img class="currency-img" src="./assets/DOLAR.png" alt="logo-moeda-convertida">
+                <p class="currency">
+                    <span class="currency-label-text" id="currency-name">Dólar Americano</span>
+                    <span class="trend-indicator" aria-label="Estável">•</span>
+                </p>
+                <div class="value-row">
+                    <p class="currency-value">US$ 0.0</p>
+                    <button class="copy-button" type="button" aria-label="Copiar valor convertido">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="quote-timestamp"></p>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <p class="chart-title">Variação (15 dias)</p>
+            <canvas class="quote-chart" width="300" height="60"></canvas>
+            <p class="chart-empty-message">Selecione uma moeda estrangeira pra ver o gráfico</p>
+        </section>
+
+        <section class="history-section">
+            <div class="history-header">
+                <p class="history-title">Últimas conversões</p>
+                <button class="clear-history-button" type="button">Limpar</button>
+            </div>
+            <ul class="history-list"></ul>
+        </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+        <p class="footer-signature">Feito por <strong>AthillaDev</strong></p>
+        <div class="footer-links">
+            <a href="https://github.com/AthillaDev" target="_blank" rel="noopener noreferrer" aria-label="GitHub de AthillaDev">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/athillacruz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Athilla Cruz">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="https://meu-portfolio-athilla-dev.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Portfólio de AthillaDev">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

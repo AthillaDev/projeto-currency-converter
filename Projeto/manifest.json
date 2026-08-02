@@ -1,0 +1,25 @@
+{
+  "name": "Trocca — Câmbio simples. Na hora certa.",
+  "short_name": "Trocca",
+  "description": "Conversor de moedas com cotações em tempo real, histórico de conversões e gráfico de variação.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#BBFBFF",
+  "theme_color": "#1B83E2",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
