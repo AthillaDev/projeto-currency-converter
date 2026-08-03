@@ -35,23 +35,25 @@
     </button>
 
     <div class="logo-topo">
-        <svg class="logo-gif" viewBox="0 0 280 76" role="img" aria-label="Trocca — Câmbio simples. Na hora certa.">
-            <g transform="translate(4, 10)">
-                <circle cx="22" cy="22" r="20" fill="none" stroke="var(--color-accent)" stroke-width="3"/>
-                <circle cx="32" cy="32" r="20" fill="var(--color-bg-card)" stroke="var(--color-accent)" stroke-width="3"/>
-                <path d="M24 32 L32 24 M32 24 L32 30 M32 24 L26 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M40 32 L32 40 M32 40 L32 34 M32 40 L38 40" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <text x="66" y="40" font-family="'Roboto Slab', serif" font-weight="700" font-size="32" fill="var(--color-text-value)">Trocca</text>
-            <text x="66" y="60" font-family="'Roboto Slab', serif" font-weight="400" font-size="13" fill="var(--color-text-label)" letter-spacing="0.3">Câmbio simples. Na hora certa.</text>
-        </svg>
+        <div class="logo-badge">
+            <svg class="logo-gif" viewBox="0 0 280 76" role="img" aria-label="Trocca — Câmbio simples. Na hora certa.">
+                <g transform="translate(4, 10)">
+                    <circle cx="22" cy="22" r="20" fill="none" stroke="var(--color-accent)" stroke-width="3"/>
+                    <circle cx="32" cy="32" r="20" fill="var(--color-bg-card)" stroke="var(--color-accent)" stroke-width="3"/>
+                    <path d="M24 32 L32 24 M32 24 L32 30 M32 24 L26 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M40 32 L32 40 M32 40 L32 34 M32 40 L38 40" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text x="66" y="40" font-family="'Roboto Slab', serif" font-weight="700" font-size="32" fill="var(--color-text-value)">Trocca</text>
+                <text x="66" y="60" font-family="'Roboto Slab', serif" font-weight="500" font-size="14" fill="var(--color-text-value)" letter-spacing="0.2">Câmbio simples. Na hora certa.</text>
+            </svg>
+        </div>
     </div>
     <div>
-        <img class="logo-background" src="./assets/background_currency_converter.webp" alt="Meu-background" width="1536" height="1024">
+        <img class="logo-background" src="./assets/background_currency_converter.png" alt="Meu-background" width="1920" height="1080">
         <div class="background-overlay"></div>
     </div>
 
-    <main>n
+    <main>
         <div class="currency-selectors">
             <label for="currency-select-from" class="selector-field">
                 Converter <b>de</b>
@@ -105,15 +107,15 @@
 
         <section aria-live="polite" class="result-section">
             <div class="currency-box currency-box--from">
-                <img class="currency-img-from" src="./assets/REAL.png" alt="logo-moeda-a-converter" width="64" height="64">
+                <img class="currency-img-from" src="./assets/REAL.png" alt="logo-moeda-a-converter" width="52" height="52">
                 <p class="currency" id="currency-name-from">Real</p>
                 <p class="currency-value-to-convert">R$ 0,00</p>
             </div>
 
-            <img class="arrow-img" src="./assets/Seta.png" alt="logo-Seta" width="24" height="24">
+            <img class="arrow-img" src="./assets/Seta.png" alt="logo-Seta" width="35" height="50">
 
             <div class="currency-box currency-box--to">
-                <img class="currency-img" src="./assets/DOLAR.png" alt="logo-moeda-convertida" width="64" height="64">
+                <img class="currency-img" src="./assets/DOLAR.png" alt="logo-moeda-convertida" width="52" height="52">
                 <p class="currency">
                     <span class="currency-label-text" id="currency-name">Dólar Americano</span>
                     <span class="trend-indicator" aria-label="Estável">•</span>

@@ -10,11 +10,13 @@
     --color-error: #C62828;
     --color-error-bg: #FDECEA;
     --color-bg-overlay-opacity: 0;
-    --color-trend-up: #2E9E5B;
-    --color-trend-down: #D93025;
+    --color-trend-up: #1F7A44;
+    --color-trend-down: #C62828;
     --color-flash: rgba(27, 131, 226, 0.15);
     --color-toast-bg: #333333;
     --color-toast-text: #ffffff;
+    --color-accent-text: #0B5FA8;
+    --color-logo-badge-bg: #ffffff;
 }
 
 [data-theme="dark"]{
@@ -33,6 +35,8 @@
     --color-flash: rgba(46, 155, 255, 0.18);
     --color-toast-bg: #E7F1F4;
     --color-toast-text: #10222B;
+    --color-accent-text: #2E9BFF;
+    --color-logo-badge-bg: #16303C;
 }
 
 *{
@@ -75,6 +79,15 @@ body{
     padding: 16px 0px;
     display: flex;
     justify-content: center;
+}
+
+.logo-topo .logo-badge{
+    background: var(--color-logo-badge-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease;
 }
 
 .logo-gif{
@@ -428,7 +441,7 @@ section.result-section{
 .clear-history-button{
     background: transparent;
     border: none;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
