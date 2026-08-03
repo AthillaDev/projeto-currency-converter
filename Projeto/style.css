@@ -17,6 +17,7 @@
     --color-toast-text: #ffffff;
     --color-accent-text: #0B5FA8;
     --color-logo-badge-bg: #ffffff;
+    --color-button-bg: #1673C9;
 }
 
 [data-theme="dark"]{
@@ -37,6 +38,7 @@
     --color-toast-text: #10222B;
     --color-accent-text: #2E9BFF;
     --color-logo-badge-bg: #16303C;
+    --color-button-bg: #1673C9;
 }
 
 *{
@@ -248,7 +250,7 @@ input::placeholder{
 .quick-amount:active{ opacity: 0.7; }
 
 button.convert-button{
-    background: var(--color-accent);
+    background: var(--color-button-bg);
     border-radius: 25px;
     height: 48px;
     width: 100%;
