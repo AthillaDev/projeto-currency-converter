@@ -113,21 +113,23 @@ https://projeto-currency-converter.vercel.app/
 
 ## 🚦 Lighthouse Audit
 
-Auditoria rodada em produção (Vercel) em 02/08/2026:
+Auditoria final rodada em produção (Vercel) em 02/08/2026:
 
 | Categoria | Mobile | Desktop |
 |---|---|---|
-| Performance | 64 → *em otimização* | 83 |
-| Acessibilidade | 96 | 96 |
+| Performance | 94 | 99 |
+| Acessibilidade | **100** | **100** |
 | Práticas recomendadas | 92 | 96 |
 | SEO | 100 | 100 |
 
-**Correções já aplicadas a partir da auditoria:**
-- ✅ Contraste de texto ajustado pra atender WCAG AA (4.5:1) nos textos secundários
-- ✅ Atributos `width`/`height` adicionados nas imagens, reduzindo layout shift (CLS)
+**Jornada de otimização (a partir da primeira auditoria, que começou em 64/96/92/100 no mobile):**
+- ✅ Compressão das imagens estáticas: PNG → WebP, reduzindo o peso do background de **2,73 MB para 62,8 KB** (redução de 97,7%) — foi o maior salto de performance (64 → 94 no mobile)
+- ✅ Atributos `width`/`height` corrigidos em todas as imagens, com as dimensões reais (eliminando distorção de proporção e layout shift)
+- ✅ Contraste de cor corrigido em múltiplos elementos (texto secundário, indicadores de tendência, botão de limpar histórico, botão de converter em telas pequenas) até atingir acessibilidade 100/100
+- ✅ Fundo da logo redesenhado pra manter legibilidade garantida sobre a foto de fundo, em qualquer tema
 
-**Melhoria pendente identificada:**
-- 🔧 Compressão das imagens estáticas (`background_currency_converter.png` e ícones de moeda) — a auditoria estimou ~2.6 MB de economia possível. É o maior gargalo de performance no mobile hoje, causado pelo peso das imagens originais em conexões mais lentas.
+**Trade-off consciente e documentado:**
+- 🔧 "Exibe imagens em baixa resolução" (Práticas recomendadas) — o background comprimido (1536×1024) não cobre com nitidez perfeita telas de altíssima densidade de pixel (ex: Moto G Power simulado pelo Lighthouse). É uma decisão intencional: abrir mão de nitidez máxima numa imagem puramente decorativa, em troca de um LCP (Largest Contentful Paint) que caiu de **16,4s para 2,4s** no mobile. Considerado um trade-off correto de engenharia, não um bug.
 
 ## 💡 Melhorias futuras
 
